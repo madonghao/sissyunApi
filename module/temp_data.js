@@ -1,4 +1,4 @@
-// 在线导入缓存商品
+// 获取在线导入的缓存商品
 
 module.exports = (query, request) => {
     const data = {
