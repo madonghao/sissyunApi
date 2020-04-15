@@ -1,0 +1,29 @@
+{
+  "name": "sissyunapi",
+  "version": "1.0.0",
+  "description": "思迅微商店 NodeJS 版 API",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "思迅",
+    "思迅云",
+    "微商店",
+    "思迅微商店nodejs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madonghao/sissyunApi.git"
+  },
+  "author": "madonghao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madonghao/sissyunApi/issues"
+  },
+  "homepage": "https://github.com/madonghao/sissyunApi#readme",
+  "dependencies": {
+    "apicache": "^1.5.3",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}

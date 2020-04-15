@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思迅微商店 API test</title>
+</head>
+<body>
+    <p>请打开控制台查看结果</p>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.5.0/dist/jquery.js"></script>
+    <script>
+        const user = ''
+        const password = ''
+        const port = 3000
+        if (!user || !password) {
+            const msg = '请设置你的用户名及密码'
+            alert(msg)
+            throw new Error(msg)
+        }
+
+        new Promise((resolve, reject) => {
+            $.ajax({
+                url: `http://localhost:${port}/login?user=${user}&password=${password}`,
+                success: data => {
+                    resolve(data)
+                },
+                error: err => {
+                    reject(err)
+                }
+            })
+        }).then(res => {
+            $.ajax({
+                url: `http://localhost:${port}/goods/info`,
+                xhrFields: {
+                    withCredentials: true // 关键
+                },
+                success: data => console.log(data),
+                error: err => console.log(err)
+            })
+        })
+
+        async function test() {
+            axios.defaults.withCredentials = true // 关键
+            await axios.get(`http://localhost:${port}/login?user=${user}&password=${password}`)
+            axios.get(`http://localhost:${port}/goods/info`)
+            .then(res => {
+                console.log(res.data)
+            })
+        }
+        test()
+    </script>
+</body>
+</html>
